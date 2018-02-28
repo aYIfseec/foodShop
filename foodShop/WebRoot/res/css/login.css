@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+body{
+	background-color: rgba(200, 200, 200, 0.407843);
+	/*background-image:url(../images/goods/test1.jpg);*/
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	
+}

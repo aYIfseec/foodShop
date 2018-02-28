@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name></display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 字符过滤 -->
+  <filter>
+    <filter-name>filter</filter-name>
+    <filter-class>com.webshop.servlet.CharsetFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>filter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 登录过滤 -->
+ <filter>
+  <filter-name>LoginFilter</filter-name>
+  <filter-class>com.webshop.servlet.AuthFilter</filter-class>
+  <!-- 不过滤的参数
+  <init-param>
+   <param-name>noFilterPath</param-name>
+   <param-value>res;login.jsp</param-value>
+  </init-param>
+   -->
+ </filter>
+ <filter-mapping>
+  <filter-name>LoginFilter</filter-name>
+  <!-- 对登录后的servlet业务进行过滤 -->
+  <url-pattern>/cart.jsp</url-pattern>
+  <url-pattern>/user.jsp</url-pattern>
+  <url-pattern>/buy.jsp</url-pattern>
+ </filter-mapping>
+</web-app>
